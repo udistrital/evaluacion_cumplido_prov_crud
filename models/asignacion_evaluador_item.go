@@ -12,7 +12,7 @@ import (
 
 type AsignacionEvaluadorItem struct {
 	Id                    int                  `orm:"column(id);pk"`
-	EvaluacionEvaluadorId *AsignacionEvaluador `orm:"column(evaluacion_evaluador_id);rel(fk)"`
+	AsignacionEvaluadorId *AsignacionEvaluador `orm:"column(asignacion_evaluador_id);rel(fk)"`
 	ItemId                *Item                `orm:"column(item_id);rel(fk)"`
 	Activo                bool                 `orm:"column(activo)"`
 	FechaCreacion         time.Time            `orm:"column(fecha_creacion);type(timestamp without time zone)"`
