@@ -11,13 +11,13 @@ import (
 )
 
 type ResultadoEvaluacion struct {
-	Id                  int                  `orm:"column(id);pk"`
-	EvaluadorId         *AsignacionEvaluador `orm:"column(evaluador_id);rel(fk)"`
-	ClasificacionId     *Clasificacion       `orm:"column(clasificacion_id);rel(fk)"`
-	ResultadoEvaluacion string               `orm:"column(resultado_evaluacion)"`
-	Activo              bool                 `orm:"column(activo)"`
-	FechaCreacion       time.Time            `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   time.Time            `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                    int                  `orm:"column(id);pk"`
+	AsignacionEvaluadorId *AsignacionEvaluador `orm:"column(asignacion_evaluador_id);rel(fk)"`
+	ClasificacionId       *Clasificacion       `orm:"column(clasificacion_id);rel(fk)"`
+	ResultadoEvaluacion   string               `orm:"column(resultado_evaluacion)"`
+	Activo                bool                 `orm:"column(activo)"`
+	FechaCreacion         time.Time            `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion     time.Time            `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *ResultadoEvaluacion) TableName() string {

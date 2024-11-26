@@ -14,6 +14,7 @@ type AsignacionEvaluador struct {
 	Id                   int         `orm:"column(id);pk"`
 	EvaluacionId         *Evaluacion `orm:"column(evaluacion_id);rel(fk)"`
 	PersonaId            int         `orm:"column(persona_id)"`
+	Cargo                string      `orm:"column(cargo)"`
 	PorcentajeEvaluacion float64     `orm:"column(porcentaje_evaluacion)"`
 	Activo               bool        `orm:"column(activo)"`
 	FechaCreacion        time.Time   `orm:"column(fecha_creacion);type(timestamp without time zone)"`

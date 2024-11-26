@@ -2965,6 +2965,9 @@
                 "Activo": {
                     "type": "boolean"
                 },
+                "Cargo": {
+                    "type": "string"
+                },
                 "EvaluacionId": {
                     "$ref": "#/definitions/models.Evaluacion"
                 },
@@ -3358,11 +3361,11 @@
                 "Activo": {
                     "type": "boolean"
                 },
+                "AsignacionEvaluadorId": {
+                    "$ref": "#/definitions/models.AsignacionEvaluador"
+                },
                 "ClasificacionId": {
                     "$ref": "#/definitions/models.Clasificacion"
-                },
-                "EvaluadorId": {
-                    "$ref": "#/definitions/models.AsignacionEvaluador"
                 },
                 "FechaCreacion": {
                     "type": "string",
