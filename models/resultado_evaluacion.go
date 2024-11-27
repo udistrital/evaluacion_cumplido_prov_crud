@@ -14,7 +14,7 @@ type ResultadoEvaluacion struct {
 	Id                    int                  `orm:"column(id);pk;auto"`
 	AsignacionEvaluadorId *AsignacionEvaluador `orm:"column(asignacion_evaluador_id);rel(fk)"`
 	ClasificacionId       *Clasificacion       `orm:"column(clasificacion_id);rel(fk)"`
-	ResultadoEvaluacion   string               `orm:"column(resultado_evaluacion)"`
+	ResultadoEvaluacion   string               `orm:"column(resultado_evaluacion);type(json)"`
 	Observaciones         string               `orm:"column(observaciones)"`
 	Activo                bool                 `orm:"column(activo);default(true)"`
 	FechaCreacion         time.Time            `orm:"auto_now_add;column(fecha_creacion);type(timestamp without time zone);null"`
@@ -33,6 +33,7 @@ func init() {
 // last inserted Id on success.
 func AddResultadoEvaluacion(m *ResultadoEvaluacion) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }

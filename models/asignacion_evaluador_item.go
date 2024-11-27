@@ -31,6 +31,7 @@ func init() {
 // last inserted Id on success.
 func AddAsignacionEvaluadorItem(m *AsignacionEvaluadorItem) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }
