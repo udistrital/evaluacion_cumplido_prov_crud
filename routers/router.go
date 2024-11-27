@@ -16,60 +16,6 @@ import (
 func init() {
 	ns := beego.NewNamespace("/v1",
 
-		beego.NSNamespace("/estado_cumplido",
-			beego.NSInclude(
-				&controllers.EstadoCumplidoController{},
-			),
-		),
-
-		beego.NSNamespace("/soporte_cumplido",
-			beego.NSInclude(
-				&controllers.SoporteCumplidoController{},
-			),
-		),
-
-		beego.NSNamespace("/informe_satisfaccion",
-			beego.NSInclude(
-				&controllers.InformeSatisfaccionController{},
-			),
-		),
-
-		beego.NSNamespace("/cumplido_proveedor",
-			beego.NSInclude(
-				&controllers.CumplidoProveedorController{},
-			),
-		),
-
-		beego.NSNamespace("/cambio_estado_cumplido",
-			beego.NSInclude(
-				&controllers.CambioEstadoCumplidoController{},
-			),
-		),
-
-		beego.NSNamespace("/comentario_soporte",
-			beego.NSInclude(
-				&controllers.ComentarioSoporteController{},
-			),
-		),
-
-		beego.NSNamespace("/tipo_pago",
-			beego.NSInclude(
-				&controllers.TipoPagoController{},
-			),
-		),
-
-		beego.NSNamespace("/tipo_cuenta_bancaria",
-			beego.NSInclude(
-				&controllers.TipoCuentaBancariaController{},
-			),
-		),
-
-		beego.NSNamespace("/tipo_factura",
-			beego.NSInclude(
-				&controllers.TipoFacturaController{},
-			),
-		),
-
 		beego.NSNamespace("/clasificacion",
 			beego.NSInclude(
 				&controllers.ClasificacionController{},

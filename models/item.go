@@ -11,7 +11,7 @@ import (
 )
 
 type Item struct {
-	Id                int         `orm:"column(id);pk"`
+	Id                int         `orm:"column(id);pk;auto"`
 	EvaluacionId      *Evaluacion `orm:"column(evaluacion_id);rel(fk)"`
 	Identificador     string      `orm:"column(identificador)"`
 	Nombre            string      `orm:"column(nombre)"`
@@ -21,9 +21,9 @@ type Item struct {
 	Unidad            int         `orm:"column(unidad);null"`
 	Cantidad          float64     `orm:"column(cantidad);null"`
 	TipoNecesidad     int         `orm:"column(tipo_necesidad);null"`
-	Activo            bool        `orm:"column(activo)"`
-	FechaCreacion     time.Time   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Activo            bool        `orm:"column(activo);default(true)"`
+	FechaCreacion     time.Time   `orm:"auto_now_add;column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion time.Time   `orm:"auto_now;column(fecha_modificacion);type(timestamp without time zone);null"`
 }
 
 func (t *Item) TableName() string {
