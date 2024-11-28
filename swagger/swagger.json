@@ -1,0 +1,1695 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/asignacion_evaluador/": {
+            "get": {
+                "tags": [
+                    "asignacion_evaluador"
+                ],
+                "description": "get AsignacionEvaluador",
+                "operationId": "AsignacionEvaluadorController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluador"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "asignacion_evaluador"
+                ],
+                "description": "create AsignacionEvaluador",
+                "operationId": "AsignacionEvaluadorController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for AsignacionEvaluador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.AsignacionEvaluador"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/asignacion_evaluador/{id}": {
+            "get": {
+                "tags": [
+                    "asignacion_evaluador"
+                ],
+                "description": "get AsignacionEvaluador by id",
+                "operationId": "AsignacionEvaluadorController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluador"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "asignacion_evaluador"
+                ],
+                "description": "update the AsignacionEvaluador",
+                "operationId": "AsignacionEvaluadorController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for AsignacionEvaluador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluador"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "asignacion_evaluador"
+                ],
+                "description": "delete the AsignacionEvaluador",
+                "operationId": "AsignacionEvaluadorController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/asignacion_evaluador_item/": {
+            "get": {
+                "tags": [
+                    "asignacion_evaluador_item"
+                ],
+                "description": "get AsignacionEvaluadorItem",
+                "operationId": "AsignacionEvaluadorItemController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluadorItem"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "asignacion_evaluador_item"
+                ],
+                "description": "create AsignacionEvaluadorItem",
+                "operationId": "AsignacionEvaluadorItemController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for AsignacionEvaluadorItem content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluadorItem"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.AsignacionEvaluadorItem"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/asignacion_evaluador_item/{id}": {
+            "get": {
+                "tags": [
+                    "asignacion_evaluador_item"
+                ],
+                "description": "get AsignacionEvaluadorItem by id",
+                "operationId": "AsignacionEvaluadorItemController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluadorItem"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "asignacion_evaluador_item"
+                ],
+                "description": "update the AsignacionEvaluadorItem",
+                "operationId": "AsignacionEvaluadorItemController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for AsignacionEvaluadorItem content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluadorItem"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluadorItem"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "asignacion_evaluador_item"
+                ],
+                "description": "delete the AsignacionEvaluadorItem",
+                "operationId": "AsignacionEvaluadorItemController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/cambio_estado_evaluacion/": {
+            "get": {
+                "tags": [
+                    "cambio_estado_evaluacion"
+                ],
+                "description": "get CambioEstadoEvaluacion",
+                "operationId": "CambioEstadoEvaluacionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoEvaluacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "cambio_estado_evaluacion"
+                ],
+                "description": "create CambioEstadoEvaluacion",
+                "operationId": "CambioEstadoEvaluacionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for CambioEstadoEvaluacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoEvaluacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.CambioEstadoEvaluacion"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/cambio_estado_evaluacion/{id}": {
+            "get": {
+                "tags": [
+                    "cambio_estado_evaluacion"
+                ],
+                "description": "get CambioEstadoEvaluacion by id",
+                "operationId": "CambioEstadoEvaluacionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoEvaluacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "cambio_estado_evaluacion"
+                ],
+                "description": "update the CambioEstadoEvaluacion",
+                "operationId": "CambioEstadoEvaluacionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for CambioEstadoEvaluacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoEvaluacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoEvaluacion"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "cambio_estado_evaluacion"
+                ],
+                "description": "delete the CambioEstadoEvaluacion",
+                "operationId": "CambioEstadoEvaluacionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/clasificacion/": {
+            "get": {
+                "tags": [
+                    "clasificacion"
+                ],
+                "description": "get Clasificacion",
+                "operationId": "ClasificacionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Clasificacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "clasificacion"
+                ],
+                "description": "create Clasificacion",
+                "operationId": "ClasificacionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Clasificacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Clasificacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Clasificacion"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/clasificacion/{id}": {
+            "get": {
+                "tags": [
+                    "clasificacion"
+                ],
+                "description": "get Clasificacion by id",
+                "operationId": "ClasificacionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Clasificacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "clasificacion"
+                ],
+                "description": "update the Clasificacion",
+                "operationId": "ClasificacionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Clasificacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Clasificacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Clasificacion"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "clasificacion"
+                ],
+                "description": "delete the Clasificacion",
+                "operationId": "ClasificacionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/estado_evaluacion/": {
+            "get": {
+                "tags": [
+                    "estado_evaluacion"
+                ],
+                "description": "get EstadoEvaluacion",
+                "operationId": "EstadoEvaluacionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoEvaluacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "estado_evaluacion"
+                ],
+                "description": "create EstadoEvaluacion",
+                "operationId": "EstadoEvaluacionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for EstadoEvaluacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoEvaluacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.EstadoEvaluacion"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/estado_evaluacion/{id}": {
+            "get": {
+                "tags": [
+                    "estado_evaluacion"
+                ],
+                "description": "get EstadoEvaluacion by id",
+                "operationId": "EstadoEvaluacionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoEvaluacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "estado_evaluacion"
+                ],
+                "description": "update the EstadoEvaluacion",
+                "operationId": "EstadoEvaluacionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for EstadoEvaluacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoEvaluacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoEvaluacion"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "estado_evaluacion"
+                ],
+                "description": "delete the EstadoEvaluacion",
+                "operationId": "EstadoEvaluacionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/evaluacion/": {
+            "get": {
+                "tags": [
+                    "evaluacion"
+                ],
+                "description": "get Evaluacion",
+                "operationId": "EvaluacionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Evaluacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "evaluacion"
+                ],
+                "description": "create Evaluacion",
+                "operationId": "EvaluacionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Evaluacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Evaluacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Evaluacion"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/evaluacion/{id}": {
+            "get": {
+                "tags": [
+                    "evaluacion"
+                ],
+                "description": "get Evaluacion by id",
+                "operationId": "EvaluacionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Evaluacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "evaluacion"
+                ],
+                "description": "update the Evaluacion",
+                "operationId": "EvaluacionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Evaluacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Evaluacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Evaluacion"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "evaluacion"
+                ],
+                "description": "delete the Evaluacion",
+                "operationId": "EvaluacionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/item/": {
+            "get": {
+                "tags": [
+                    "item"
+                ],
+                "description": "get Item",
+                "operationId": "ItemController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Item"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "item"
+                ],
+                "description": "create Item",
+                "operationId": "ItemController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Item content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Item"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/item/{id}": {
+            "get": {
+                "tags": [
+                    "item"
+                ],
+                "description": "get Item by id",
+                "operationId": "ItemController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Item"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "item"
+                ],
+                "description": "update the Item",
+                "operationId": "ItemController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Item content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Item"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "item"
+                ],
+                "description": "delete the Item",
+                "operationId": "ItemController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/resultado_evaluacion/": {
+            "get": {
+                "tags": [
+                    "resultado_evaluacion"
+                ],
+                "description": "get ResultadoEvaluacion",
+                "operationId": "ResultadoEvaluacionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResultadoEvaluacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "resultado_evaluacion"
+                ],
+                "description": "create ResultadoEvaluacion",
+                "operationId": "ResultadoEvaluacionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ResultadoEvaluacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ResultadoEvaluacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ResultadoEvaluacion"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/resultado_evaluacion/{id}": {
+            "get": {
+                "tags": [
+                    "resultado_evaluacion"
+                ],
+                "description": "get ResultadoEvaluacion by id",
+                "operationId": "ResultadoEvaluacionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResultadoEvaluacion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "resultado_evaluacion"
+                ],
+                "description": "update the ResultadoEvaluacion",
+                "operationId": "ResultadoEvaluacionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ResultadoEvaluacion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ResultadoEvaluacion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResultadoEvaluacion"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "resultado_evaluacion"
+                ],
+                "description": "delete the ResultadoEvaluacion",
+                "operationId": "ResultadoEvaluacionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.AsignacionEvaluador": {
+            "title": "AsignacionEvaluador",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Cargo": {
+                    "type": "string"
+                },
+                "EvaluacionId": {
+                    "$ref": "#/definitions/models.Evaluacion"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "PersonaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "PorcentajeEvaluacion": {
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "models.AsignacionEvaluadorItem": {
+            "title": "AsignacionEvaluadorItem",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "AsignacionEvaluadorId": {
+                    "$ref": "#/definitions/models.AsignacionEvaluador"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ItemId": {
+                    "$ref": "#/definitions/models.Item"
+                }
+            }
+        },
+        "models.CambioEstadoEvaluacion": {
+            "title": "CambioEstadoEvaluacion",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "EstadoEvaluacionId": {
+                    "$ref": "#/definitions/models.EstadoEvaluacion"
+                },
+                "EvaluacionId": {
+                    "$ref": "#/definitions/models.Evaluacion"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Clasificacion": {
+            "title": "Clasificacion",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "CodigoAbreviacion": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LimiteInferior": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LimiteSuperior": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.EstadoEvaluacion": {
+            "title": "EstadoEvaluacion",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "CodigoAbreviacion": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Evaluacion": {
+            "title": "Evaluacion",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "ContratoSuscritoId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "VigenciaContrato": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Item": {
+            "title": "Item",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Cantidad": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "EvaluacionId": {
+                    "$ref": "#/definitions/models.Evaluacion"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FichaTecnica": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Identificador": {
+                    "type": "string"
+                },
+                "Iva": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "TipoNecesidad": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Unidad": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ValorUnitario": {
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "models.ResultadoEvaluacion": {
+            "title": "ResultadoEvaluacion",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "AsignacionEvaluadorId": {
+                    "$ref": "#/definitions/models.AsignacionEvaluador"
+                },
+                "ClasificacionId": {
+                    "$ref": "#/definitions/models.Clasificacion"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Observaciones": {
+                    "type": "string"
+                },
+                "ResultadoEvaluacion": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "clasificacion",
+            "description": "ClasificacionController operations for Clasificacion\n"
+        },
+        {
+            "name": "resultado_evaluacion",
+            "description": "ResultadoEvaluacionController operations for ResultadoEvaluacion\n"
+        },
+        {
+            "name": "asignacion_evaluador",
+            "description": "AsignacionEvaluadorController operations for AsignacionEvaluador\n"
+        },
+        {
+            "name": "evaluacion",
+            "description": "EvaluacionController operations for Evaluacion\n"
+        },
+        {
+            "name": "cambio_estado_evaluacion",
+            "description": "CambioEstadoEvaluacionController operations for CambioEstadoEvaluacion\n"
+        },
+        {
+            "name": "estado_evaluacion",
+            "description": "EstadoEvaluacionController operations for EstadoEvaluacion\n"
+        },
+        {
+            "name": "item",
+            "description": "ItemController operations for Item\n"
+        },
+        {
+            "name": "asignacion_evaluador_item",
+            "description": "AsignacionEvaluadorItemController operations for AsignacionEvaluadorItem\n"
+        }
+    ]
+}
