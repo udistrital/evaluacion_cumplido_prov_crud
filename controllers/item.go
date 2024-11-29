@@ -52,6 +52,45 @@ func (c *ItemController) Post() {
 	c.ServeJSON()
 }
 
+// Post ... Insert multiple items
+// @Title Post
+// @Description create multiple Items
+// @Param	body		body 	[]models.Item	true		"body for Items content"
+// @Success 201 {int} int64	"Success count of inserted items"
+// @Failure 400 the request contains incorrect syntax
+// @router /guardado_multiple [post]
+func (c *ItemController) PostMultiple() {
+	var items []models.Item
+	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &items); err != nil {
+		logs.Error(err)
+		c.Data["json"] = map[string]interface{}{
+			"Success": false,
+			"Message": "Error al decodificar el cuerpo de la solicitud",
+		}
+		c.Abort("400")
+		return
+	}
+
+	successNums, err := models.AddItems(items)
+	if err != nil {
+		logs.Error(err)
+		c.Data["json"] = map[string]interface{}{
+			"Success": false,
+			"Message": "Error al insertar los items en la base de datos",
+		}
+		c.Abort("400")
+		return
+	}
+
+	c.Data["json"] = map[string]interface{}{
+		"Success": true,
+		"Status":  "201",
+		"Message": "Items insertados exitosamente, se insenrtaron " + strconv.Itoa(int(successNums)) + " items",
+	}
+
+	c.ServeJSON()
+}
+
 // GetOne ...
 // @Title Get One
 // @Description get Item by id

@@ -43,6 +43,17 @@ func AddItem(m *Item) (id int64, err error) {
 	return
 }
 
+// inserta múltiples registros de Item
+func AddItems(items []Item) (id int64, err error) {
+	o := orm.NewOrm()
+
+	successNums, err := o.InsertMulti(len(items), items)
+	if err != nil {
+		return 0, err
+	}
+	return successNums, nil
+}
+
 // GetItemById retrieves Item by Id. Returns error if
 // Id doesn't exist
 func GetItemById(id int) (v *Item, err error) {
