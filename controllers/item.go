@@ -85,9 +85,8 @@ func (c *ItemController) PostMultiple() {
 	c.Data["json"] = map[string]interface{}{
 		"Success": true,
 		"Status":  "201",
-		"Message": "Items insertados exitosamente, se insenrtaron " + strconv.Itoa(int(successNums)) + " items",
+		"Message": "Items insertados exitosamente. Total insertados: " + strconv.Itoa(int(successNums)) + " items.",
 	}
-
 	c.ServeJSON()
 }
 
