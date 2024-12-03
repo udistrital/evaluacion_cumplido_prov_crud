@@ -29,12 +29,12 @@ func init() {
 
 // AddAsignacionEvaluadorItem insert a new AsignacionEvaluadorItem into database and returns
 // last inserted Id on success.
-func AddAsignacionEvaluadorItem(m *AsignacionEvaluadorItem) (id int64, err error) {
-	o := orm.NewOrm()
-	m.Activo = true
-	id, err = o.Insert(m)
-	return
-}
+// func AddAsignacionEvaluadorItem(m *AsignacionEvaluadorItem) (id int64, err error) {
+// 	o := orm.NewOrm()
+// 	m.Activo = true
+// 	id, err = o.Insert(m)
+// 	return
+// }
 
 // GetAsignacionEvaluadorItemById retrieves AsignacionEvaluadorItem by Id. Returns error if
 // Id doesn't exist
@@ -152,9 +152,40 @@ func DeleteAsignacionEvaluadorItem(id int) (err error) {
 	if err = o.Read(&v); err == nil {
 		var num int64
 		v.Activo = false
-		if num, err = o.Update(v); err == nil {
+		if num, err = o.Update(&v); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}
 	return
+}
+
+// ReadOrUpdateAsignacionEvaluadorItem reads an AsignacionEvaluador by personaId and evaluacionId,
+// updates it if exists, or creates it if not.
+func CreateOrUpdateAsignacionEvaluadorItem(m *AsignacionEvaluadorItem) (created bool, err error) {
+	o := orm.NewOrm()
+
+	var existing AsignacionEvaluadorItem
+	err = o.QueryTable(new(AsignacionEvaluadorItem)).
+		Filter("AsignacionEvaluadorId__Id", m.AsignacionEvaluadorId.Id).
+		Filter("ItemId__Id", m.ItemId.Id).
+		Filter("Activo", true).
+		One(&existing)
+
+	if err == orm.ErrNoRows {
+		m.Activo = true
+		if _, err = o.Insert(m); err == nil {
+			created = true
+			return created, nil
+		}
+	} else if err == nil {
+		m.Id = existing.Id
+		m.FechaCreacion = existing.FechaCreacion
+		m.Activo = existing.Activo
+		if _, err = o.Update(m); err == nil {
+			created = false
+			return created, nil
+		}
+	}
+
+	return false, err
 }

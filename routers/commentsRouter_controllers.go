@@ -54,18 +54,18 @@ func init() {
 
     beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:AsignacionEvaluadorItemController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:AsignacionEvaluadorItemController"],
         beego.ControllerComments{
-            Method: "Post",
+            Method: "GetAll",
             Router: "/",
-            AllowHTTPMethods: []string{"post"},
+            AllowHTTPMethods: []string{"get"},
             MethodParams: param.Make(),
             Filters: nil,
             Params: nil})
 
     beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:AsignacionEvaluadorItemController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:AsignacionEvaluadorItemController"],
         beego.ControllerComments{
-            Method: "GetAll",
+            Method: "CreateOrUpdateAsignacionEvaluadorItem",
             Router: "/",
-            AllowHTTPMethods: []string{"get"},
+            AllowHTTPMethods: []string{"post"},
             MethodParams: param.Make(),
             Filters: nil,
             Params: nil})

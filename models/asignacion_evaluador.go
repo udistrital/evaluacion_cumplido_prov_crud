@@ -154,7 +154,7 @@ func DeleteAsignacionEvaluador(id int) (err error) {
 	if err = o.Read(&v); err == nil {
 		var num int64
 		v.Activo = false
-		if num, err = o.Update(v); err == nil {
+		if num, err = o.Update(&v); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

@@ -258,8 +258,8 @@
                 "tags": [
                     "asignacion_evaluador_item"
                 ],
-                "description": "create AsignacionEvaluadorItem",
-                "operationId": "AsignacionEvaluadorItemController.Post",
+                "description": "Read or update an AsignacionEvaluadorItem by asignacionEvaluadorId and itemId, updates it if exists, or creates it if not.",
+                "operationId": "AsignacionEvaluadorItemController.Create Or Update  Asignacion Evaluador Item",
                 "parameters": [
                     {
                         "in": "body",
@@ -272,8 +272,17 @@
                     }
                 ],
                 "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluadorItem"
+                        }
+                    },
                     "201": {
-                        "description": "{int} models.AsignacionEvaluadorItem"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluadorItem"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"
