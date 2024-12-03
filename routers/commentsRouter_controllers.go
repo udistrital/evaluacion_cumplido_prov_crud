@@ -322,6 +322,15 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:ItemController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:ItemController"],
+        beego.ControllerComments{
+            Method: "PostMultiple",
+            Router: "/guardado_multiple",
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
     beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:ResultadoEvaluacionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:ResultadoEvaluacionController"],
         beego.ControllerComments{
             Method: "Post",

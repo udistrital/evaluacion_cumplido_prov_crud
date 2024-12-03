@@ -1146,6 +1146,37 @@
                 }
             }
         },
+        "/item/guardado_multiple": {
+            "post": {
+                "tags": [
+                    "item"
+                ],
+                "description": "create multiple Items",
+                "operationId": "ItemController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Items content",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Item"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} int64\t\"Success count of inserted items\""
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
         "/item/{id}": {
             "get": {
                 "tags": [
