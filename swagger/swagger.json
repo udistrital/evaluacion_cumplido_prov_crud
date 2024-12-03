@@ -76,8 +76,8 @@
                 "tags": [
                     "asignacion_evaluador"
                 ],
-                "description": "create AsignacionEvaluador",
-                "operationId": "AsignacionEvaluadorController.Post",
+                "description": "Read or update an AsignacionEvaluador by personaId and evaluacionId",
+                "operationId": "AsignacionEvaluadorController.Create Or Update",
                 "parameters": [
                     {
                         "in": "body",
@@ -90,8 +90,17 @@
                     }
                 ],
                 "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluador"
+                        }
+                    },
                     "201": {
-                        "description": "{int} models.AsignacionEvaluador"
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.AsignacionEvaluador"
+                        }
                     },
                     "400": {
                         "description": "the request contains incorrect syntax"

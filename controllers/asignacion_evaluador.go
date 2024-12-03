@@ -24,6 +24,7 @@ func (c *AsignacionEvaluadorController) URLMapping() {
 	c.Mapping("GetAll", c.GetAll)
 	c.Mapping("Put", c.Put)
 	c.Mapping("Delete", c.Delete)
+	c.Mapping("CreateOrUpdate", c.CreateOrUpdate)
 }
 
 // Post ...
@@ -33,24 +34,24 @@ func (c *AsignacionEvaluadorController) URLMapping() {
 // @Success 201 {int} models.AsignacionEvaluador
 // @Failure 400 the request contains incorrect syntax
 // @router / [post]
-func (c *AsignacionEvaluadorController) Post() {
-	var v models.AsignacionEvaluador
-	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddAsignacionEvaluador(&v); err == nil {
-			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
-		} else {
-			logs.Error(err)
-			c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
-			c.Abort("400")
-		}
-	} else {
-		logs.Error(err)
-		c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
-		c.Abort("400")
-	}
-	c.ServeJSON()
-}
+// func (c *AsignacionEvaluadorController) Post() {
+// 	var v models.AsignacionEvaluador
+// 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+// 		if _, err := models.AddAsignacionEvaluador(&v); err == nil {
+// 			c.Ctx.Output.SetStatus(201)
+// 			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
+// 		} else {
+// 			logs.Error(err)
+// 			c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
+// 			c.Abort("400")
+// 		}
+// 	} else {
+// 		logs.Error(err)
+// 		c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
+// 		c.Abort("400")
+// 	}
+// 	c.ServeJSON()
+// }
 
 // GetOne ...
 // @Title Get One
@@ -186,6 +187,40 @@ func (c *AsignacionEvaluadorController) Delete() {
 		logs.Error(err)
 		c.Data["mesaage"] = "Error service Delete: Request contains incorrect parameter"
 		c.Abort("404")
+	}
+	c.ServeJSON()
+}
+
+// CreateOrUpdate ...
+// @Title Create Or Update
+// @Description Read or update an AsignacionEvaluador by personaId and evaluacionId
+// @Param	body	body 	models.AsignacionEvaluador	true		"body for AsignacionEvaluador content"
+// @Success 201 {object} models.AsignacionEvaluador
+// @Success 200 {object} models.AsignacionEvaluador
+// @Failure 400 the request contains incorrect syntax
+// @router / [post]
+func (c *AsignacionEvaluadorController) CreateOrUpdate() {
+	var v models.AsignacionEvaluador
+
+	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err != nil {
+		logs.Error(err)
+		c.Data["mesaage"] = "Error service ReadOrUpdate: Invalid request body"
+		c.Abort("400")
+		return
+	}
+
+	if created, err := models.CreateOrUpdateAsignacionEvaluador(&v); err == nil {
+		if created {
+			c.Ctx.Output.SetStatus(201)
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Record created successfully", "Data": v}
+		} else {
+			c.Ctx.Output.SetStatus(200)
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Record updated successfully", "Data": v}
+		}
+	} else {
+		logs.Error(err)
+		c.Data["mesaage"] = "Error service ReadOrUpdate: Could not process the request"
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }

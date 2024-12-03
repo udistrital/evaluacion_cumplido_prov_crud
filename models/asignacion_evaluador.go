@@ -31,12 +31,12 @@ func init() {
 
 // AddAsignacionEvaluador insert a new AsignacionEvaluador into database and returns
 // last inserted Id on success.
-func AddAsignacionEvaluador(m *AsignacionEvaluador) (id int64, err error) {
-	o := orm.NewOrm()
-	m.Activo = true
-	id, err = o.Insert(m)
-	return
-}
+// func AddAsignacionEvaluador(m *AsignacionEvaluador) (id int64, err error) {
+// 	o := orm.NewOrm()
+// 	m.Activo = true
+// 	id, err = o.Insert(m)
+// 	return
+// }
 
 // GetAsignacionEvaluadorById retrieves AsignacionEvaluador by Id. Returns error if
 // Id doesn't exist
@@ -159,4 +159,35 @@ func DeleteAsignacionEvaluador(id int) (err error) {
 		}
 	}
 	return
+}
+
+// ReadOrUpdateAsignacionEvaluador reads an AsignacionEvaluador by personaId and evaluacionId,
+// updates it if exists, or creates it if not.
+func CreateOrUpdateAsignacionEvaluador(m *AsignacionEvaluador) (created bool, err error) {
+	o := orm.NewOrm()
+
+	var existing AsignacionEvaluador
+	err = o.QueryTable(new(AsignacionEvaluador)).
+		Filter("PersonaId", m.PersonaId).
+		Filter("EvaluacionId__Id", m.EvaluacionId.Id).
+		Filter("Activo", true).
+		One(&existing)
+
+	if err == orm.ErrNoRows {
+		m.Activo = true
+		if _, err = o.Insert(m); err == nil {
+			created = true
+			return created, nil
+		}
+	} else if err == nil {
+		m.Id = existing.Id
+		m.FechaCreacion = existing.FechaCreacion
+		m.Activo = existing.Activo
+		if _, err = o.Update(m); err == nil {
+			created = false
+			return created, nil
+		}
+	}
+
+	return false, err
 }
