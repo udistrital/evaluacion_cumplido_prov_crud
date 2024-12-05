@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "beego Test API",
-        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "description": "beego has a very cool tools to autogenerate documents for your API\n",
         "version": "1.0.0",
         "termsOfService": "http://beego.me/",
         "contact": {
@@ -20,7 +20,7 @@
                 "tags": [
                     "asignacion_evaluador"
                 ],
-                "description": "get AsignacionEvaluador",
+                "description": "get AsignacionEvaluador\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorController.Get All",
                 "parameters": [
                     {
@@ -76,7 +76,7 @@
                 "tags": [
                     "asignacion_evaluador"
                 ],
-                "description": "Read or update an AsignacionEvaluador by personaId and evaluacionId",
+                "description": "Read or update an AsignacionEvaluador by personaId and evaluacionId\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorController.Create Or Update",
                 "parameters": [
                     {
@@ -113,7 +113,7 @@
                 "tags": [
                     "asignacion_evaluador"
                 ],
-                "description": "get AsignacionEvaluador by id",
+                "description": "get AsignacionEvaluador by id\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorController.Get One",
                 "parameters": [
                     {
@@ -140,7 +140,7 @@
                 "tags": [
                     "asignacion_evaluador"
                 ],
-                "description": "update the AsignacionEvaluador",
+                "description": "update the AsignacionEvaluador\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorController.Put",
                 "parameters": [
                     {
@@ -176,7 +176,7 @@
                 "tags": [
                     "asignacion_evaluador"
                 ],
-                "description": "delete the AsignacionEvaluador",
+                "description": "delete the AsignacionEvaluador\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorController.Delete",
                 "parameters": [
                     {
@@ -202,7 +202,7 @@
                 "tags": [
                     "asignacion_evaluador_item"
                 ],
-                "description": "get AsignacionEvaluadorItem",
+                "description": "get AsignacionEvaluadorItem\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorItemController.Get All",
                 "parameters": [
                     {
@@ -258,7 +258,7 @@
                 "tags": [
                     "asignacion_evaluador_item"
                 ],
-                "description": "Read or update an AsignacionEvaluadorItem by asignacionEvaluadorId and itemId, updates it if exists, or creates it if not.",
+                "description": "Read or update an AsignacionEvaluadorItem by asignacionEvaluadorId and itemId, updates it if exists, or creates it if not.\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorItemController.Create Or Update  Asignacion Evaluador Item",
                 "parameters": [
                     {
@@ -295,7 +295,7 @@
                 "tags": [
                     "asignacion_evaluador_item"
                 ],
-                "description": "get AsignacionEvaluadorItem by id",
+                "description": "get AsignacionEvaluadorItem by id\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorItemController.Get One",
                 "parameters": [
                     {
@@ -322,7 +322,7 @@
                 "tags": [
                     "asignacion_evaluador_item"
                 ],
-                "description": "update the AsignacionEvaluadorItem",
+                "description": "update the AsignacionEvaluadorItem\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorItemController.Put",
                 "parameters": [
                     {
@@ -358,7 +358,7 @@
                 "tags": [
                     "asignacion_evaluador_item"
                 ],
-                "description": "delete the AsignacionEvaluadorItem",
+                "description": "delete the AsignacionEvaluadorItem\n\u003cbr\u003e",
                 "operationId": "AsignacionEvaluadorItemController.Delete",
                 "parameters": [
                     {
@@ -379,12 +379,185 @@
                 }
             }
         },
+        "/cambio_estado_asignacion_evaluador/": {
+            "get": {
+                "tags": [
+                    "cambio_estado_asignacion_evaluador"
+                ],
+                "description": "get CambioEstadoAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "CambioEstadoAsignacionEvaluadorController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "cambio_estado_asignacion_evaluador"
+                ],
+                "description": "create CambioEstadoAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "CambioEstadoAsignacionEvaluadorController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for CambioEstadoAsignacionEvaluador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoAsignacionEvaluador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.CambioEstadoAsignacionEvaluador"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/cambio_estado_asignacion_evaluador/{id}": {
+            "get": {
+                "tags": [
+                    "cambio_estado_asignacion_evaluador"
+                ],
+                "description": "get CambioEstadoAsignacionEvaluador by id\n\u003cbr\u003e",
+                "operationId": "CambioEstadoAsignacionEvaluadorController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "cambio_estado_asignacion_evaluador"
+                ],
+                "description": "update the CambioEstadoAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "CambioEstadoAsignacionEvaluadorController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for CambioEstadoAsignacionEvaluador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoAsignacionEvaluador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.CambioEstadoAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "cambio_estado_asignacion_evaluador"
+                ],
+                "description": "delete the CambioEstadoAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "CambioEstadoAsignacionEvaluadorController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
         "/cambio_estado_evaluacion/": {
             "get": {
                 "tags": [
                     "cambio_estado_evaluacion"
                 ],
-                "description": "get CambioEstadoEvaluacion",
+                "description": "get CambioEstadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "CambioEstadoEvaluacionController.Get All",
                 "parameters": [
                     {
@@ -440,7 +613,7 @@
                 "tags": [
                     "cambio_estado_evaluacion"
                 ],
-                "description": "create CambioEstadoEvaluacion",
+                "description": "create CambioEstadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "CambioEstadoEvaluacionController.Post",
                 "parameters": [
                     {
@@ -468,7 +641,7 @@
                 "tags": [
                     "cambio_estado_evaluacion"
                 ],
-                "description": "get CambioEstadoEvaluacion by id",
+                "description": "get CambioEstadoEvaluacion by id\n\u003cbr\u003e",
                 "operationId": "CambioEstadoEvaluacionController.Get One",
                 "parameters": [
                     {
@@ -495,7 +668,7 @@
                 "tags": [
                     "cambio_estado_evaluacion"
                 ],
-                "description": "update the CambioEstadoEvaluacion",
+                "description": "update the CambioEstadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "CambioEstadoEvaluacionController.Put",
                 "parameters": [
                     {
@@ -531,7 +704,7 @@
                 "tags": [
                     "cambio_estado_evaluacion"
                 ],
-                "description": "delete the CambioEstadoEvaluacion",
+                "description": "delete the CambioEstadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "CambioEstadoEvaluacionController.Delete",
                 "parameters": [
                     {
@@ -557,7 +730,7 @@
                 "tags": [
                     "clasificacion"
                 ],
-                "description": "get Clasificacion",
+                "description": "get Clasificacion\n\u003cbr\u003e",
                 "operationId": "ClasificacionController.Get All",
                 "parameters": [
                     {
@@ -613,7 +786,7 @@
                 "tags": [
                     "clasificacion"
                 ],
-                "description": "create Clasificacion",
+                "description": "create Clasificacion\n\u003cbr\u003e",
                 "operationId": "ClasificacionController.Post",
                 "parameters": [
                     {
@@ -641,7 +814,7 @@
                 "tags": [
                     "clasificacion"
                 ],
-                "description": "get Clasificacion by id",
+                "description": "get Clasificacion by id\n\u003cbr\u003e",
                 "operationId": "ClasificacionController.Get One",
                 "parameters": [
                     {
@@ -668,7 +841,7 @@
                 "tags": [
                     "clasificacion"
                 ],
-                "description": "update the Clasificacion",
+                "description": "update the Clasificacion\n\u003cbr\u003e",
                 "operationId": "ClasificacionController.Put",
                 "parameters": [
                     {
@@ -704,7 +877,7 @@
                 "tags": [
                     "clasificacion"
                 ],
-                "description": "delete the Clasificacion",
+                "description": "delete the Clasificacion\n\u003cbr\u003e",
                 "operationId": "ClasificacionController.Delete",
                 "parameters": [
                     {
@@ -725,12 +898,185 @@
                 }
             }
         },
+        "/estado_asignacion_evaluador/": {
+            "get": {
+                "tags": [
+                    "estado_asignacion_evaluador"
+                ],
+                "description": "get DeleteEstadoAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "EstadoAsignacionEvaluadorController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "estado_asignacion_evaluador"
+                ],
+                "description": "create EstadoAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "EstadoAsignacionEvaluadorController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for EstadoAsignacionEvaluador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAsignacionEvaluador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.EstadoAsignacionEvaluador"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/estado_asignacion_evaluador/{id}": {
+            "get": {
+                "tags": [
+                    "estado_asignacion_evaluador"
+                ],
+                "description": "get EstadoAsignacionEvaluador by id\n\u003cbr\u003e",
+                "operationId": "EstadoAsignacionEvaluadorController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "estado_asignacion_evaluador"
+                ],
+                "description": "update the EstadoAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "EstadoAsignacionEvaluadorController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for EstadoAsignacionEvaluador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAsignacionEvaluador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.EstadoAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "estado_asignacion_evaluador"
+                ],
+                "description": "delete the EstadoAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "EstadoAsignacionEvaluadorController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
         "/estado_evaluacion/": {
             "get": {
                 "tags": [
                     "estado_evaluacion"
                 ],
-                "description": "get EstadoEvaluacion",
+                "description": "get EstadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "EstadoEvaluacionController.Get All",
                 "parameters": [
                     {
@@ -786,7 +1132,7 @@
                 "tags": [
                     "estado_evaluacion"
                 ],
-                "description": "create EstadoEvaluacion",
+                "description": "create EstadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "EstadoEvaluacionController.Post",
                 "parameters": [
                     {
@@ -814,7 +1160,7 @@
                 "tags": [
                     "estado_evaluacion"
                 ],
-                "description": "get EstadoEvaluacion by id",
+                "description": "get EstadoEvaluacion by id\n\u003cbr\u003e",
                 "operationId": "EstadoEvaluacionController.Get One",
                 "parameters": [
                     {
@@ -841,7 +1187,7 @@
                 "tags": [
                     "estado_evaluacion"
                 ],
-                "description": "update the EstadoEvaluacion",
+                "description": "update the EstadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "EstadoEvaluacionController.Put",
                 "parameters": [
                     {
@@ -877,7 +1223,7 @@
                 "tags": [
                     "estado_evaluacion"
                 ],
-                "description": "delete the EstadoEvaluacion",
+                "description": "delete the EstadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "EstadoEvaluacionController.Delete",
                 "parameters": [
                     {
@@ -903,7 +1249,7 @@
                 "tags": [
                     "evaluacion"
                 ],
-                "description": "get Evaluacion",
+                "description": "get Evaluacion\n\u003cbr\u003e",
                 "operationId": "EvaluacionController.Get All",
                 "parameters": [
                     {
@@ -959,7 +1305,7 @@
                 "tags": [
                     "evaluacion"
                 ],
-                "description": "create Evaluacion",
+                "description": "create Evaluacion\n\u003cbr\u003e",
                 "operationId": "EvaluacionController.Post",
                 "parameters": [
                     {
@@ -987,7 +1333,7 @@
                 "tags": [
                     "evaluacion"
                 ],
-                "description": "get Evaluacion by id",
+                "description": "get Evaluacion by id\n\u003cbr\u003e",
                 "operationId": "EvaluacionController.Get One",
                 "parameters": [
                     {
@@ -1014,7 +1360,7 @@
                 "tags": [
                     "evaluacion"
                 ],
-                "description": "update the Evaluacion",
+                "description": "update the Evaluacion\n\u003cbr\u003e",
                 "operationId": "EvaluacionController.Put",
                 "parameters": [
                     {
@@ -1050,7 +1396,7 @@
                 "tags": [
                     "evaluacion"
                 ],
-                "description": "delete the Evaluacion",
+                "description": "delete the Evaluacion\n\u003cbr\u003e",
                 "operationId": "EvaluacionController.Delete",
                 "parameters": [
                     {
@@ -1076,7 +1422,7 @@
                 "tags": [
                     "item"
                 ],
-                "description": "get Item",
+                "description": "get Item\n\u003cbr\u003e",
                 "operationId": "ItemController.Get All",
                 "parameters": [
                     {
@@ -1132,7 +1478,7 @@
                 "tags": [
                     "item"
                 ],
-                "description": "create Item",
+                "description": "create Item\n\u003cbr\u003e",
                 "operationId": "ItemController.Post",
                 "parameters": [
                     {
@@ -1160,7 +1506,7 @@
                 "tags": [
                     "item"
                 ],
-                "description": "create multiple Items",
+                "description": "create multiple Items\n\u003cbr\u003e",
                 "operationId": "ItemController.Post",
                 "parameters": [
                     {
@@ -1191,7 +1537,7 @@
                 "tags": [
                     "item"
                 ],
-                "description": "get Item by id",
+                "description": "get Item by id\n\u003cbr\u003e",
                 "operationId": "ItemController.Get One",
                 "parameters": [
                     {
@@ -1218,7 +1564,7 @@
                 "tags": [
                     "item"
                 ],
-                "description": "update the Item",
+                "description": "update the Item\n\u003cbr\u003e",
                 "operationId": "ItemController.Put",
                 "parameters": [
                     {
@@ -1254,7 +1600,7 @@
                 "tags": [
                     "item"
                 ],
-                "description": "delete the Item",
+                "description": "delete the Item\n\u003cbr\u003e",
                 "operationId": "ItemController.Delete",
                 "parameters": [
                     {
@@ -1280,7 +1626,7 @@
                 "tags": [
                     "resultado_evaluacion"
                 ],
-                "description": "get ResultadoEvaluacion",
+                "description": "get ResultadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "ResultadoEvaluacionController.Get All",
                 "parameters": [
                     {
@@ -1336,7 +1682,7 @@
                 "tags": [
                     "resultado_evaluacion"
                 ],
-                "description": "create ResultadoEvaluacion",
+                "description": "create ResultadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "ResultadoEvaluacionController.Post",
                 "parameters": [
                     {
@@ -1364,7 +1710,7 @@
                 "tags": [
                     "resultado_evaluacion"
                 ],
-                "description": "get ResultadoEvaluacion by id",
+                "description": "get ResultadoEvaluacion by id\n\u003cbr\u003e",
                 "operationId": "ResultadoEvaluacionController.Get One",
                 "parameters": [
                     {
@@ -1391,7 +1737,7 @@
                 "tags": [
                     "resultado_evaluacion"
                 ],
-                "description": "update the ResultadoEvaluacion",
+                "description": "update the ResultadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "ResultadoEvaluacionController.Put",
                 "parameters": [
                     {
@@ -1427,7 +1773,7 @@
                 "tags": [
                     "resultado_evaluacion"
                 ],
-                "description": "delete the ResultadoEvaluacion",
+                "description": "delete the ResultadoEvaluacion\n\u003cbr\u003e",
                 "operationId": "ResultadoEvaluacionController.Delete",
                 "parameters": [
                     {
@@ -1444,6 +1790,179 @@
                     },
                     "404": {
                         "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/rol_asignacion_evaluador/": {
+            "get": {
+                "tags": [
+                    "rol_asignacion_evaluador"
+                ],
+                "description": "get RolAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "RolAsignacionEvaluadorController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RolAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "rol_asignacion_evaluador"
+                ],
+                "description": "create RolAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "RolAsignacionEvaluadorController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RolAsignacionEvaluador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RolAsignacionEvaluador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RolAsignacionEvaluador"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/rol_asignacion_evaluador/{id}": {
+            "get": {
+                "tags": [
+                    "rol_asignacion_evaluador"
+                ],
+                "description": "get RolAsignacionEvaluador by id\n\u003cbr\u003e",
+                "operationId": "RolAsignacionEvaluadorController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RolAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "rol_asignacion_evaluador"
+                ],
+                "description": "update the RolAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "RolAsignacionEvaluadorController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RolAsignacionEvaluador content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RolAsignacionEvaluador"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RolAsignacionEvaluador"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "rol_asignacion_evaluador"
+                ],
+                "description": "delete the RolAsignacionEvaluador\n\u003cbr\u003e",
+                "operationId": "RolAsignacionEvaluadorController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
                     }
                 }
             }
@@ -1482,6 +2001,9 @@
                 "PorcentajeEvaluacion": {
                     "type": "number",
                     "format": "double"
+                },
+                "RolAsignacionEvaluadorId": {
+                    "$ref": "#/definitions/models.RolAsignacionEvaluador"
                 }
             }
         },
@@ -1509,6 +2031,36 @@
                 },
                 "ItemId": {
                     "$ref": "#/definitions/models.Item"
+                },
+                "RolAsignacionEvaluadorId": {
+                    "$ref": "#/definitions/models.RolAsignacionEvaluador"
+                }
+            }
+        },
+        "models.CambioEstadoAsignacionEvaluador": {
+            "title": "CambioEstadoAsignacionEvaluador",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "AsignacionEvaluadorId": {
+                    "$ref": "#/definitions/models.AsignacionEvaluador"
+                },
+                "EstadoAsignacionEvaluadorId": {
+                    "$ref": "#/definitions/models.EstadoAsignacionEvaluador"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },
@@ -1569,6 +2121,25 @@
                 }
             }
         },
+        "models.EstadoAsignacionEvaluador": {
+            "title": "EstadoAsignacionEvaluador",
+            "type": "object",
+            "properties": {
+                "CodigoAbreviacion": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
+        },
         "models.EstadoEvaluacion": {
             "title": "EstadoEvaluacion",
             "type": "object",
@@ -1599,6 +2170,10 @@
                     "type": "boolean"
                 },
                 "ContratoSuscritoId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "DocumentoId": {
                     "type": "integer",
                     "format": "int64"
                 },
@@ -1705,6 +2280,28 @@
                     "type": "string"
                 }
             }
+        },
+        "models.RolAsignacionEvaluador": {
+            "title": "RolAsignacionEvaluador",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "CodigoAbreviacion": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                }
+            }
         }
     },
     "tags": [
@@ -1725,6 +2322,10 @@
             "description": "EvaluacionController operations for Evaluacion\n"
         },
         {
+            "name": "rol_asignacion_evaluador",
+            "description": "RolAsignacionEvaluadorController operations for RolAsignacionEvaluador\n"
+        },
+        {
             "name": "cambio_estado_evaluacion",
             "description": "CambioEstadoEvaluacionController operations for CambioEstadoEvaluacion\n"
         },
@@ -1739,6 +2340,14 @@
         {
             "name": "asignacion_evaluador_item",
             "description": "AsignacionEvaluadorItemController operations for AsignacionEvaluadorItem\n"
+        },
+        {
+            "name": "estado_asignacion_evaluador",
+            "description": "EstadoAsignacionEvaluadorController operations for EstadoAsignacionEvaluador\n"
+        },
+        {
+            "name": "cambio_estado_asignacion_evaluador",
+            "description": "CambioEstadoAsignacionEvaluadorController operations for CambioEstadoAsignacionEvaluador\n"
         }
     ]
 }

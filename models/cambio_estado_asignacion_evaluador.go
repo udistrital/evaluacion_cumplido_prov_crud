@@ -10,59 +10,54 @@ import (
 	"github.com/astaxie/beego/orm"
 )
 
-type Evaluacion struct {
-	Id                 int       `orm:"column(id);pk;auto"`
-	ContratoSuscritoId int       `orm:"column(contrato_suscrito_id)"`
-	VigenciaContrato   int       `orm:"column(vigencia_contrato)"`
-	Activo             bool      `orm:"column(activo);default(true)"`
-	DocumentoId        int       `orm:"column(documento_id);null"`
-	FechaCreacion      time.Time `orm:"auto_now_add;column(fecha_creacion);type(timestamp without time zone);null"`
-	FechaModificacion  time.Time `orm:"auto_now;column(fecha_modificacion);type(timestamp without time zone);null"`
+type CambioEstadoAsignacionEvaluador struct {
+	Id                           int                        `orm:"column(id);pk"`
+	EstadoAsignacionEvaluadorId *EstadoAsignacionEvaluador `orm:"column(estado_asignacion_evaluador_id);rel(fk)"`
+	AsignacionEvaluadorId        *AsignacionEvaluador       `orm:"column(asignacion_evaluador_id);rel(fk)"`
+	Activo                       bool                       `orm:"column(activo);null"`
+	FechaCreacion                time.Time                  `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion            int16                      `orm:"column(fecha_modificacion);null"`
 }
 
-func (t *Evaluacion) TableName() string {
-	return "evaluacion"
+func (t *CambioEstadoAsignacionEvaluador) TableName() string {
+	return "cambio_estado_asignacion_evaluador"
 }
 
 func init() {
-	orm.RegisterModel(new(Evaluacion))
+	orm.RegisterModel(new(CambioEstadoAsignacionEvaluador))
 }
 
-// AddEvaluacion insert a new Evaluacion into database and returns
+// AddCambioEstadoAsignacionEvaluador insert a new CambioEstadoAsignacionEvaluador into database and returns
 // last inserted Id on success.
-func AddEvaluacion(m *Evaluacion) (id int64, err error) {
+func AddCambioEstadoAsignacionEvaluador(m *CambioEstadoAsignacionEvaluador) (id int64, err error) {
 	o := orm.NewOrm()
-	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }
 
-// GetEvaluacionById retrieves Evaluacion by Id. Returns error if
+// GetCambioEstadoAsignacionEvaluadorById retrieves CambioEstadoAsignacionEvaluador by Id. Returns error if
 // Id doesn't exist
-func GetEvaluacionById(id int) (v *Evaluacion, err error) {
+func GetCambioEstadoAsignacionEvaluadorById(id int) (v *CambioEstadoAsignacionEvaluador, err error) {
 	o := orm.NewOrm()
-	v = &Evaluacion{Id: id}
+	v = &CambioEstadoAsignacionEvaluador{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllEvaluacion retrieves all Evaluacion matches certain condition. Returns empty list if
+// GetAllCambioEstadoAsignacionEvaluador retrieves all CambioEstadoAsignacionEvaluador matches certain condition. Returns empty list if
 // no records exist
-func GetAllEvaluacion(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllCambioEstadoAsignacionEvaluador(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Evaluacion)).RelatedSel()
+	qs := o.QueryTable(new(CambioEstadoAsignacionEvaluador))
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
-		} else if strings.HasSuffix(k, "in") {
-			arr := strings.Split(v, "|")
-			qs = qs.Filter(k, arr)
 		} else {
 			qs = qs.Filter(k, v)
 		}
@@ -106,7 +101,7 @@ func GetAllEvaluacion(query map[string]string, fields []string, sortby []string,
 		}
 	}
 
-	var l []Evaluacion
+	var l []CambioEstadoAsignacionEvaluador
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -129,11 +124,11 @@ func GetAllEvaluacion(query map[string]string, fields []string, sortby []string,
 	return nil, err
 }
 
-// UpdateEvaluacion updates Evaluacion by Id and returns error if
+// UpdateCambioEstadoAsignacionEvaluador updates CambioEstadoAsignacionEvaluador by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateEvaluacionById(m *Evaluacion) (err error) {
+func UpdateCambioEstadoAsignacionEvaluadorById(m *CambioEstadoAsignacionEvaluador) (err error) {
 	o := orm.NewOrm()
-	v := Evaluacion{Id: m.Id}
+	v := CambioEstadoAsignacionEvaluador{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -144,16 +139,15 @@ func UpdateEvaluacionById(m *Evaluacion) (err error) {
 	return
 }
 
-// DeleteEvaluacion deletes Evaluacion by Id and returns error if
+// DeleteCambioEstadoAsignacionEvaluador deletes CambioEstadoAsignacionEvaluador by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteEvaluacion(id int) (err error) {
+func DeleteCambioEstadoAsignacionEvaluador(id int) (err error) {
 	o := orm.NewOrm()
-	v := Evaluacion{Id: id}
+	v := CambioEstadoAsignacionEvaluador{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		v.Activo = false
-		if num, err = o.Update(&v); err == nil {
+		if num, err = o.Delete(&CambioEstadoAsignacionEvaluador{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

@@ -12,7 +12,7 @@ import (
 
 type ResultadoEvaluacion struct {
 	Id                    int                  `orm:"column(id);pk;auto"`
-	AsignacionEvaluadorId *AsignacionEvaluador `orm:"column(asignacion_evaluador_id);rel(fk)"`
+	AsignacionEvaluadorId *AsignacionEvaluador `orm:"column(asignacion_evaluador_id);rel(fk);unique"`
 	ClasificacionId       *Clasificacion       `orm:"column(clasificacion_id);rel(fk)"`
 	ResultadoEvaluacion   string               `orm:"column(resultado_evaluacion);type(json)"`
 	Observaciones         string               `orm:"column(observaciones)"`

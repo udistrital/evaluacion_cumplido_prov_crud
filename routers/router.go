@@ -38,6 +38,10 @@ func init() {
 			beego.NSInclude(
 				&controllers.EvaluacionController{},
 			),
+		), beego.NSNamespace("/rol_asignacion_evaluador",
+			beego.NSInclude(
+				&controllers.RolAsignacionEvaluadorController{},
+			),
 		),
 
 		beego.NSNamespace("/cambio_estado_evaluacion",
@@ -61,6 +65,17 @@ func init() {
 		beego.NSNamespace("/asignacion_evaluador_item",
 			beego.NSInclude(
 				&controllers.AsignacionEvaluadorItemController{},
+			),
+		),
+		beego.NSNamespace("/estado_asignacion_evaluador",
+			beego.NSInclude(
+				&controllers.EstadoAsignacionEvaluadorController{},
+			),
+		),
+
+		beego.NSNamespace("/cambio_estado_asignacion_evaluador",
+			beego.NSInclude(
+				&controllers.CambioEstadoAsignacionEvaluadorController{},
 			),
 		),
 	)
