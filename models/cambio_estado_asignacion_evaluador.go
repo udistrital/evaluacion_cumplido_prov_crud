@@ -11,12 +11,12 @@ import (
 )
 
 type CambioEstadoAsignacionEvaluador struct {
-	Id                           int                        `orm:"column(id);pk"`
+	Id                          int                        `orm:"column(id);pk"`
 	EstadoAsignacionEvaluadorId *EstadoAsignacionEvaluador `orm:"column(estado_asignacion_evaluador_id);rel(fk)"`
-	AsignacionEvaluadorId        *AsignacionEvaluador       `orm:"column(asignacion_evaluador_id);rel(fk)"`
-	Activo                       bool                       `orm:"column(activo);null"`
-	FechaCreacion                time.Time                  `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
-	FechaModificacion            int16                      `orm:"column(fecha_modificacion);null"`
+	AsignacionEvaluadorId       *AsignacionEvaluador       `orm:"column(asignacion_evaluador_id);rel(fk)"`
+	Activo                      bool                       `orm:"column(activo);null"`
+	FechaCreacion               time.Time                  `orm:"auto_now_add;column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion           time.Time                  `orm:"auto_now;column(fecha_modificacion);type(timestamp without time zone);null"`
 }
 
 func (t *CambioEstadoAsignacionEvaluador) TableName() string {
@@ -31,6 +31,7 @@ func init() {
 // last inserted Id on success.
 func AddCambioEstadoAsignacionEvaluador(m *CambioEstadoAsignacionEvaluador) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }

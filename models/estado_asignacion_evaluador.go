@@ -14,6 +14,7 @@ type EstadoAsignacionEvaluador struct {
 	Nombre            string `orm:"column(nombre);null"`
 	CodigoAbreviacion string `orm:"column(codigo_abreviacion);null"`
 	Descripcion       string `orm:"column(descripcion);null"`
+	Activo            bool   `orm:"column(activo);null"`
 }
 
 func (t *EstadoAsignacionEvaluador) TableName() string {
@@ -28,6 +29,7 @@ func init() {
 // last inserted Id on success.
 func AddEstadoAsignacionEvaluador(m *EstadoAsignacionEvaluador) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }
