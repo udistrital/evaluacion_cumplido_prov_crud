@@ -2031,9 +2031,6 @@
                 },
                 "ItemId": {
                     "$ref": "#/definitions/models.Item"
-                },
-                "RolAsignacionEvaluadorId": {
-                    "$ref": "#/definitions/models.RolAsignacionEvaluador"
                 }
             }
         },
@@ -2055,8 +2052,8 @@
                     "format": "datetime"
                 },
                 "FechaModificacion": {
-                    "type": "integer",
-                    "format": "int32"
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2125,6 +2122,9 @@
             "title": "EstadoAsignacionEvaluador",
             "type": "object",
             "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
                 "CodigoAbreviacion": {
                     "type": "string"
                 },

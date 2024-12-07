@@ -36,12 +36,14 @@ func (c *RolAsignacionEvaluadorController) Post() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if _, err := models.AddRolAsignacionEvaluador(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = v
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
 		} else {
-			c.Data["json"] = err.Error()
+			c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
+			c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		c.Data["mesaage"] = "Error service POST: The request contains an incorrect data type or an invalid parameter"
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -58,9 +60,10 @@ func (c *RolAsignacionEvaluadorController) GetOne() {
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetRolAsignacionEvaluadorById(id)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		c.Data["mesaage"] = "Error service GetOne: The request contains an incorrect parameter or no record exists"
+		c.Abort("404")
 	} else {
-		c.Data["json"] = v
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": v}
 	}
 	c.ServeJSON()
 }
@@ -121,9 +124,13 @@ func (c *RolAsignacionEvaluadorController) GetAll() {
 
 	l, err := models.GetAllRolAsignacionEvaluador(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		c.Data["mesaage"] = "Error service GetAll: The request contains an incorrect parameter or no record exists"
+		c.Abort("404")
 	} else {
-		c.Data["json"] = l
+		if l == nil {
+			l = append(l, map[string]interface{}{})
+		}
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
 	}
 	c.ServeJSON()
 }
@@ -142,12 +149,15 @@ func (c *RolAsignacionEvaluadorController) Put() {
 	v := models.RolAsignacionEvaluador{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateRolAsignacionEvaluadorById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Update successful", "Data": v}
 		} else {
-			c.Data["json"] = err.Error()
+
+			c.Data["mesaage"] = "Error service Put: The request contains an incorrect data type or an invalid parameter"
+			c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		c.Data["mesaage"] = "Error service Put: The request contains an incorrect data type or an invalid parameter"
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -163,9 +173,11 @@ func (c *RolAsignacionEvaluadorController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteRolAsignacionEvaluador(id); err == nil {
-		c.Data["json"] = "OK"
+		d := map[string]interface{}{"Id": id}
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Delete successful", "Data": d}
 	} else {
-		c.Data["json"] = err.Error()
+		c.Data["mesaage"] = "Error service Delete: Request contains incorrect parameter"
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }
