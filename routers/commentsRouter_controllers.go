@@ -511,4 +511,22 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:TrCrearSolicitudAsignacionEvaluadorController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:TrCrearSolicitudAsignacionEvaluadorController"],
+        beego.ControllerComments{
+            Method: "Post",
+            Router: "/",
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:TrCrearSolicitudEvaluacionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/evaluacion_cumplido_prov_crud/controllers:TrCrearSolicitudEvaluacionController"],
+        beego.ControllerComments{
+            Method: "Post",
+            Router: "/",
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
 }

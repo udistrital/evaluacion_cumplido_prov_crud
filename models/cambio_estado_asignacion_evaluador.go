@@ -11,7 +11,7 @@ import (
 )
 
 type CambioEstadoAsignacionEvaluador struct {
-	Id                          int                        `orm:"column(id);pk"`
+	Id                          int                        `orm:"column(id);pk;auto"`
 	EstadoAsignacionEvaluadorId *EstadoAsignacionEvaluador `orm:"column(estado_asignacion_evaluador_id);rel(fk)"`
 	AsignacionEvaluadorId       *AsignacionEvaluador       `orm:"column(asignacion_evaluador_id);rel(fk)"`
 	Activo                      bool                       `orm:"column(activo);null"`
