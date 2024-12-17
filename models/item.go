@@ -47,11 +47,76 @@ func AddItem(m *Item) (id int64, err error) {
 func AddItems(items []Item) (id int64, err error) {
 	o := orm.NewOrm()
 
-	successNums, err := o.InsertMulti(len(items), items)
-	if err != nil {
-		return 0, err
+	if len(items) == 0 {
+		return 0, fmt.Errorf("La lista de items está vacía")
 	}
-	return successNums, nil
+
+	var nuevosItems []Item
+	var itemsAverificar []Item
+	var idevaluacion int
+	var listaConsulta []Item
+	var listaAfalse []Item
+	var listaAeditar []Item
+
+	for _, item := range items {
+		if item.Id == 0 {
+			item.Activo = true
+			nuevosItems = append(nuevosItems, item)
+			idevaluacion = item.EvaluacionId.Id
+		} else {
+			idevaluacion = item.EvaluacionId.Id
+			item.Activo = true
+			itemsAverificar = append(itemsAverificar, item)
+		}
+	}
+
+	if idevaluacion != 0 {
+		_, err = o.QueryTable("item").
+			Filter("EvaluacionId", idevaluacion).
+			Filter("Activo", true). // Solo traer los items con Activo == true
+			All(&listaConsulta)
+		if err != nil {
+			return 0, err
+		}
+	}
+
+	for _, consultaItem := range listaConsulta {
+		found := false
+		for _, item := range itemsAverificar {
+			if consultaItem.Id == item.Id {
+				listaAeditar = append(listaAeditar, consultaItem)
+				break
+			}
+		}
+		if !found {
+			consultaItem.Activo = false
+			listaAfalse = append(listaAfalse, consultaItem)
+		}
+	}
+
+	if len(nuevosItems) > 0 {
+		successNums, err := o.InsertMulti(len(nuevosItems), nuevosItems)
+		if err != nil {
+			return 0, err
+		}
+		return successNums, nil
+	}
+
+	for _, item := range listaAfalse {
+		err := UpdateItemById(&item)
+		if err != nil {
+			return 0, err
+		}
+	}
+
+	for _, item := range listaAeditar {
+		err := UpdateItemById(&item)
+		if err != nil {
+			return 0, err
+		}
+	}
+
+	return int64(len(listaAeditar) + len(listaAfalse)), nil
 }
 
 // GetItemById retrieves Item by Id. Returns error if
