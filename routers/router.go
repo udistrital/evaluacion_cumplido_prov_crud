@@ -78,6 +78,16 @@ func init() {
 				&controllers.CambioEstadoAsignacionEvaluadorController{},
 			),
 		),
+		beego.NSNamespace("/crear_solicitud_asignacion_evaluador",
+			beego.NSInclude(
+				&controllers.TrCrearSolicitudAsignacionEvaluadorController{},
+			),
+		),
+		beego.NSNamespace("/crear_solicitud_evaluacion",
+			beego.NSInclude(
+				&controllers.TrCrearSolicitudEvaluacionController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
