@@ -164,7 +164,7 @@ func DeleteAsignacionEvaluador(id int) (err error) {
 
 // ReadOrUpdateAsignacionEvaluador reads an AsignacionEvaluador by personaId and evaluacionId,
 // updates it if exists, or creates it if not.
-func CreateOrUpdateAsignacionEvaluador(m *AsignacionEvaluador) (created bool, err error) {
+func CreateOrUpdateAsignacionEvaluador(m *AsignacionEvaluador) (created bool, id int, err error) {
 	o := orm.NewOrm()
 
 	var existing AsignacionEvaluador
@@ -176,9 +176,10 @@ func CreateOrUpdateAsignacionEvaluador(m *AsignacionEvaluador) (created bool, er
 
 	if err == orm.ErrNoRows {
 		m.Activo = true
-		if _, err = o.Insert(m); err == nil {
+		if id64, err := o.Insert(m); err == nil {
 			created = true
-			return created, nil
+			id = int(id64)
+			return created, id, nil
 		}
 	} else if err == nil {
 		m.Id = existing.Id
@@ -186,9 +187,10 @@ func CreateOrUpdateAsignacionEvaluador(m *AsignacionEvaluador) (created bool, er
 		m.Activo = existing.Activo
 		if _, err = o.Update(m); err == nil {
 			created = false
-			return created, nil
+			id = existing.Id
+			return created, id, nil
 		}
 	}
 
-	return false, err
+	return false, 0, err
 }

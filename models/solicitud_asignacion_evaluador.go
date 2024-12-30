@@ -43,6 +43,7 @@ func CrearSolicitudAsignacionEvaluador(m *SolicitudAsignacionEvaluador) (asignac
 	evaluacion.Id = m.EvaluacionId
 
 	// Se crea la asignacion_evaluador
+
 	asignacion.EvaluacionId = &evaluacion
 	asignacion.PersonaId = m.PersonaId
 	asignacion.Cargo = m.Cargo
@@ -50,33 +51,35 @@ func CrearSolicitudAsignacionEvaluador(m *SolicitudAsignacionEvaluador) (asignac
 	asignacion.RolAsignacionEvaluadorId = &rol_asignacion_evaluador
 	asignacion.Activo = true
 
-	id_asignacion_evaluador, err := o.Insert(&asignacion)
+	created, id_asignacion_evaluador, err := CreateOrUpdateAsignacionEvaluador(&asignacion)
 	if err != nil {
 		o.Rollback()
 		return nil, err
 	}
 
-	// Se actualiza el id de la asignacion_evaluador creada para que se pueda usar más adelante
-	asignacion.Id = int(id_asignacion_evaluador)
+	// Se actualiza el id de la asignacion_evaluador creada o actualizada para que se pueda usar más adelante
+	asignacion.Id = id_asignacion_evaluador
 
-	//Se busca el id del primer estado de la asignacion_evaluacion que es Evaluación Asignada
-	res_estado, err := GetAllEstadoAsignacionEvaluador(map[string]string{"codigo_abreviacion": "EAG"}, []string{}, []string{}, []string{}, 0, 1)
-	if err != nil {
-		o.Rollback()
-		return nil, err
-	}
+	if created {
+		//Se busca el id del primer estado de la asignacion_evaluacion que es Evaluación Asignada
+		res_estado, err := GetAllEstadoAsignacionEvaluador(map[string]string{"codigo_abreviacion": "EAG"}, []string{}, []string{}, []string{}, 0, 1)
+		if err != nil {
+			o.Rollback()
+			return nil, err
+		}
 
-	estado_asignacion_evaluador.Id = res_estado[0].(EstadoAsignacionEvaluador).Id
+		estado_asignacion_evaluador.Id = res_estado[0].(EstadoAsignacionEvaluador).Id
 
-	//Se crea el primer cambio estado de la asignacion_evaluador
-	cambio_estado_asignacion_evaluador.EstadoAsignacionEvaluadorId = &estado_asignacion_evaluador
-	cambio_estado_asignacion_evaluador.AsignacionEvaluadorId = &asignacion
-	cambio_estado_asignacion_evaluador.Activo = true
+		//Se crea el primer cambio estado de la asignacion_evaluador
+		cambio_estado_asignacion_evaluador.EstadoAsignacionEvaluadorId = &estado_asignacion_evaluador
+		cambio_estado_asignacion_evaluador.AsignacionEvaluadorId = &asignacion
+		cambio_estado_asignacion_evaluador.Activo = true
 
-	_, err = o.Insert(&cambio_estado_asignacion_evaluador)
-	if err != nil {
-		o.Rollback()
-		return nil, err
+		_, err = o.Insert(&cambio_estado_asignacion_evaluador)
+		if err != nil {
+			o.Rollback()
+			return nil, err
+		}
 	}
 
 	err = o.Commit()

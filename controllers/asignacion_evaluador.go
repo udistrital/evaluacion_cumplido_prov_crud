@@ -209,7 +209,8 @@ func (c *AsignacionEvaluadorController) CreateOrUpdate() {
 		return
 	}
 
-	if created, err := models.CreateOrUpdateAsignacionEvaluador(&v); err == nil {
+	if created, id, err := models.CreateOrUpdateAsignacionEvaluador(&v); err == nil {
+		v.Id = id
 		if created {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Record created successfully", "Data": v}

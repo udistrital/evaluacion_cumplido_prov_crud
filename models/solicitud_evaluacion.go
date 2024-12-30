@@ -26,11 +26,24 @@ func CrearSolicitudEvaluacion(m *SolicitudEvaluacion) (evaluacion *Evaluacion, e
 	var cambio_estado_evaluacion CambioEstadoEvaluacion
 	var estado_evaluacion EstadoEvaluacion
 
+	// Desactivar evaluaciones existentes con el mismo contrato y vigencia
+	// _, err = o.QueryTable("evaluacion").
+	// 	Filter("contrato_suscrito_id", m.ContratoSuscritoId).
+	// 	Filter("vigencia_contrato", m.VigenciaContrato).
+	// 	Filter("activo", true).
+	// 	Update(orm.Params{
+	// 		"activo": false,
+	// 	})
+
+	// if err != nil {
+	// 	o.Rollback()
+	// 	return nil, err
+	// }
+
 	// Se crea la evaluacion
 	evaluacion_crear.ContratoSuscritoId = m.ContratoSuscritoId
 	evaluacion_crear.VigenciaContrato = m.VigenciaContrato
 	evaluacion_crear.Activo = true
-
 	id_evaluacion, err := o.Insert(&evaluacion_crear)
 	if err != nil {
 		o.Rollback()
