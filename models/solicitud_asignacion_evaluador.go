@@ -62,7 +62,7 @@ func CrearSolicitudAsignacionEvaluador(m *SolicitudAsignacionEvaluador) (asignac
 
 	if created {
 		//Se busca el id del primer estado de la asignacion_evaluacion que es Evaluación Asignada
-		res_estado, err := GetAllEstadoAsignacionEvaluador(map[string]string{"codigo_abreviacion": "EAG"}, []string{}, []string{}, []string{}, 0, 1)
+		res_estado, err := GetAllEstadoAsignacionEvaluador(map[string]string{"codigo_abreviacion": "EA"}, []string{}, []string{}, []string{}, 0, 1)
 		if err != nil {
 			o.Rollback()
 			return nil, err
